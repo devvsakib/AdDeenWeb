@@ -1,21 +1,27 @@
 {
-  "name": "ad-deen-web",
-  "version": "1.0.0",
-  "description": "AdDeenWeb - সহীহ ইসলামিক জ্ঞানের বিশ্বস্ত মাধ্যম",
-  "main": "index.html",
-  "scripts": {
-    "dev": "python3 -m http.server 3000",
-    "build": "echo 'Static site - no build required'",
-    "lint": "echo 'No linter configured'"
-  },
-  "keywords": [
-    "islamic",
-    "education",
-    "bangladesh"
-  ],
-  "author": "AdDeen Team",
-  "license": "MIT",
-  "dependencies": {
-    "@vercel/analytics": "^1.4.1"
-  }
+    "name": "ad-deen-web",
+    "version": "1.0.0",
+    "description": "AdDeenWeb - সহীহ ইসলামিক জ্ঞানের বিশ্বস্ত মাধ্যম",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "islamic",
+        "education",
+        "bangladesh"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/devvsakib/AdDeenWeb.git"
+    },
+    "author": "Sakib Ahmed",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/devvsakib/AdDeenWeb/issues"
+    },
+    "homepage": "https://github.com/devvsakib/AdDeenWeb#readme",
+    "dependencies": {
+        "@vercel/analytics": "^2.0.1"
+    }
 }
