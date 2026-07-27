@@ -6,11 +6,16 @@ import HomePage from './pages/HomePage';
 import QnaDetailPage from './pages/QnaDetailPage';
 import AskQuestionModal from './components/AskQuestionModal';
 import ContactSection from './components/ContactSection';
+import { useBookmarks } from './hooks/useBookmarks';
+import SavedDrawer from './components/SavedDrawer';
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('সব');
   const [isAskModalOpen, setIsAskModalOpen] = useState(false);
+  const [isSavedDrawerOpen, setIsSavedDrawerOpen] = useState(false);
+
+  const { bookmarks, toggleBookmark } = useBookmarks();
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800">
@@ -25,7 +30,17 @@ export default function App() {
         </p>
       </div>
 
-      <Header onSearchSubmit={setSearchQuery} onAskQuestionClick={() => setIsAskModalOpen(true)} />
+      <Header
+        savedCount={bookmarks.length}
+        onOpenSaved={() => setIsSavedDrawerOpen(true)}
+        onSearchSubmit={setSearchQuery}
+        onAskQuestionClick={() => setIsAskModalOpen(true)} />
+      <SavedDrawer
+        isOpen={isSavedDrawerOpen}
+        onClose={() => setIsSavedDrawerOpen(false)}
+        bookmarks={bookmarks}
+        onRemove={toggleBookmark}
+      />
       <AskQuestionModal
         isOpen={isAskModalOpen}
         onClose={() => setIsAskModalOpen(false)}

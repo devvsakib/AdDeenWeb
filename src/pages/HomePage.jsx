@@ -9,10 +9,12 @@ import { HelpCircle, XCircle } from 'lucide-react';
 import { categories, qnaList } from '../data/qnaData';
 import IslamQaFetcher from '../components/IslamQaFetcher';
 import ContactSection from '../components/ContactSection';
+import { useBookmarks } from '../hooks/useBookmarks';
 
 export default function HomePage() {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
+    const { bookmarks, toggleBookmark, isBookmarked } = useBookmarks();
 
     // Read search & category directly from URL query parameters
     const searchQuery = searchParams.get('q') || '';
@@ -97,6 +99,9 @@ export default function HomePage() {
                                     item={item}
                                     searchQuery={searchQuery}
                                     onSelect={(qna) => navigate(`/qa/${qna.slug}${searchQuery ? `?highlight=${encodeURIComponent(searchQuery)}` : ''}`)}
+                                    isBookmarked={isBookmarked(item.id)}
+                                    onToggleBookmark={toggleBookmark} // Pass it here
+                                    onClick={() => navigate(`/qa/${item.slug || item.id}`)}
                                 />
                             ))
                         ) : (

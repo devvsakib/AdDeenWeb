@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Search, HelpCircle, Menu, X, Loader2, BookOpen } from 'lucide-react';
+import { Search, HelpCircle, Menu, X, Loader2, BookOpen, Bookmark, PlusCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { images } from '../config/images';
 import { useDebounce } from '../hooks/useDebounce';
 import { qnaList } from '../data/qnaData';
 
-export default function Header({ onSearchSubmit, onAskQuestionClick, setIsAskModalOpen }) {
+export default function Header({ savedCount, onOpenSaved, onSearchSubmit, onAskQuestionClick, setIsAskModalOpen }) {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
@@ -145,13 +145,29 @@ export default function Header({ onSearchSubmit, onAskQuestionClick, setIsAskMod
                     </nav>
 
                     {/* Ask Question CTA */}
-                    <div className="hidden sm:flex items-center gap-3 shrink-0">
+                    <div className="flex items-center gap-3">
+
+                        {/* Saved / Bookmarks Button with Badge */}
+                        <button
+                            onClick={onOpenSaved}
+                            className="relative p-2.5 text-slate-600 hover:bg-slate-100 rounded-xl transition-colors flex items-center gap-1.5"
+                            title="সংরক্ষিত প্রশ্নসমূহ"
+                        >
+                            <Bookmark className="w-5 h-5" />
+                            {savedCount > 0 && (
+                                <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">
+                                    {savedCount}
+                                </span>
+                            )}
+                        </button>
+
+                        {/* Ask Question Button */}
                         <button
                             onClick={onAskQuestionClick}
-                            className="bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-sm shadow-teal-200 flex items-center gap-1.5 active:scale-95"
+                            className="bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5"
                         >
-                            <HelpCircle className="w-4 h-4" />
-                            প্রশ্ন করুন
+                            <PlusCircle className="w-4 h-4" />
+                            <span className="hidden sm:inline">প্রশ্ন করুন</span>
                         </button>
                     </div>
 
@@ -230,16 +246,31 @@ export default function Header({ onSearchSubmit, onAskQuestionClick, setIsAskMod
                         <a href="#about" onClick={() => setIsMenuOpen(false)} className="py-2 px-2 hover:bg-slate-50 rounded-lg">আমাদের সম্পর্কে</a>
                     </nav>
 
-                    <button
-                        onClick={() => {
-                            setIsMenuOpen(false);
-                            if (onAskQuestionClick) onAskQuestionClick();
-                        }}
-                        className="w-full mt-2 bg-teal-600 text-white font-semibold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-sm"
-                    >
-                        <HelpCircle className="w-4 h-4" />
-                        প্রশ্ন করুন
-                    </button>
+                    <div className="flex items-center gap-3">
+
+                        {/* Saved / Bookmarks Button with Badge */}
+                        <button
+                            onClick={onOpenSaved}
+                            className="relative p-2.5 text-slate-600 hover:bg-slate-100 rounded-xl transition-colors flex items-center gap-1.5"
+                            title="সংরক্ষিত প্রশ্নসমূহ"
+                        >
+                            <Bookmark className="w-5 h-5" />
+                            {savedCount > 0 && (
+                                <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">
+                                    {savedCount}
+                                </span>
+                            )}
+                        </button>
+
+                        {/* Ask Question Button */}
+                        <button
+                            onClick={onAskQuestionClick}
+                            className="bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5"
+                        >
+                            <PlusCircle className="w-4 h-4" />
+                            <span className="hidden sm:inline">প্রশ্ন করুন</span>
+                        </button>
+                    </div>
                 </div>
             )}
         </header>
