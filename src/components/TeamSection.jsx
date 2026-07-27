@@ -57,6 +57,7 @@ export default function TeamSection() {
                         />
                     </div>
                     <h3 className="text-xs md:text-sm font-bold text-slate-800">SAKIB AHMED</h3>
+                    <span className="text-[11px] text-slate-400 mt-0.5">SOFTWARE ENGINEER</span>
                 </div>
             </div>
 
