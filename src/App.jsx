@@ -9,6 +9,9 @@ import ContactSection from './components/ContactSection';
 import { useBookmarks } from './hooks/useBookmarks';
 import SavedDrawer from './components/SavedDrawer';
 import EditorDemoPage from './components/EditorDemoPage';
+import ArticleDetailsPage from './pages/ArticleDetailsPage';
+import ArticleListPage from './pages/ArticleListPage';
+import { ARTICLES } from './data/articles';
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,6 +20,12 @@ export default function App() {
   const [isSavedDrawerOpen, setIsSavedDrawerOpen] = useState(false);
 
   const { bookmarks, toggleBookmark } = useBookmarks();
+
+  const handleToggleBookmark = (id) => {
+    setBookmarks((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800">
@@ -59,6 +68,9 @@ export default function App() {
           }
         />
         <Route path="/qa/:slug" element={<QnaDetailPage />} />
+        <Route path="/articles" element={<ArticleListPage bookmarks={bookmarks}
+          onToggleBookmark={handleToggleBookmark} />} />
+        <Route path="/article/:id" element={<ArticleDetailsPage articles={ARTICLES} />} />
         <Route path="/editor/preview" element={<EditorDemoPage />} />
       </Routes>
       <ContactSection onAskQuestionClick={() => setIsAskModalOpen(true)} />

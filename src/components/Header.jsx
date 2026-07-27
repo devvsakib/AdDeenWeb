@@ -139,7 +139,7 @@ export default function Header({ savedCount, onOpenSaved, onSearchSubmit, onAskQ
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-600">
                         <a href="#qa" className="hover:text-teal-600 transition-colors">প্রশ্ন ও উত্তর</a>
-                        <a href="#articles" className="hover:text-teal-600 transition-colors">আর্টিকেল</a>
+                        <a href="articles" className="hover:text-teal-600 transition-colors">আর্টিকেল</a>
                         <a href="#library" className="hover:text-teal-600 transition-colors">বই ও লাইব্রেরি</a>
                         <a href="#about" className="hover:text-teal-600 transition-colors">আমাদের সম্পর্কে</a>
                     </nav>
@@ -241,7 +241,7 @@ export default function Header({ savedCount, onOpenSaved, onSearchSubmit, onAskQ
 
                     <nav className="flex flex-col space-y-2 text-xs font-semibold text-slate-700 pt-2">
                         <a href="#qa" onClick={() => setIsMenuOpen(false)} className="py-2 px-2 hover:bg-slate-50 rounded-lg">প্রশ্ন ও উত্তর</a>
-                        <a href="#articles" onClick={() => setIsMenuOpen(false)} className="py-2 px-2 hover:bg-slate-50 rounded-lg">আর্টিকেল</a>
+                        <a href="articles" onClick={() => setIsMenuOpen(false)} className="py-2 px-2 hover:bg-slate-50 rounded-lg">আর্টিকেল</a>
                         <a href="#library" onClick={() => setIsMenuOpen(false)} className="py-2 px-2 hover:bg-slate-50 rounded-lg">বই ও লাইব্রেরি</a>
                         <a href="#about" onClick={() => setIsMenuOpen(false)} className="py-2 px-2 hover:bg-slate-50 rounded-lg">আমাদের সম্পর্কে</a>
                     </nav>
