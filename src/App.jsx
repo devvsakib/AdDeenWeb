@@ -8,6 +8,7 @@ import AskQuestionModal from './components/AskQuestionModal';
 import ContactSection from './components/ContactSection';
 import { useBookmarks } from './hooks/useBookmarks';
 import SavedDrawer from './components/SavedDrawer';
+import EditorDemoPage from './components/EditorDemoPage';
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,7 +30,7 @@ export default function App() {
           <span>"বলুন, হে আমার পালনকর্তা! আমার জ্ঞান বৃদ্ধি করুন।" (সূরা তহা: ১১৪)</span>
         </p>
       </div>
-
+      {/* <EditorDemoPage /> */}
       <Header
         savedCount={bookmarks.length}
         onOpenSaved={() => setIsSavedDrawerOpen(true)}
@@ -58,6 +59,7 @@ export default function App() {
           }
         />
         <Route path="/qa/:slug" element={<QnaDetailPage />} />
+        <Route path="/editor/preview" element={<EditorDemoPage />} />
       </Routes>
       <ContactSection onAskQuestionClick={() => setIsAskModalOpen(true)} />
       <Footer />
