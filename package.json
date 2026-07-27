@@ -1,27 +1,29 @@
 {
-    "name": "ad-deen-web",
-    "version": "1.0.0",
-    "description": "AdDeenWeb - সহীহ ইসলামিক জ্ঞানের বিশ্বস্ত মাধ্যম",
-    "main": "index.html",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [
-        "islamic",
-        "education",
-        "bangladesh"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/devvsakib/AdDeenWeb.git"
-    },
-    "author": "Sakib Ahmed",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/devvsakib/AdDeenWeb/issues"
-    },
-    "homepage": "https://github.com/devvsakib/AdDeenWeb#readme",
-    "dependencies": {
-        "@vercel/analytics": "^2.0.1"
-    }
+  "name": "test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vercel/analytics": "^2.0.1",
+    "lucide-react": "^1.27.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-highlight-words": "^0.21.0",
+    "react-router-dom": "^7.18.1",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "oxlint": "^1.71.0",
+    "vite": "^8.1.1"
+  }
 }
